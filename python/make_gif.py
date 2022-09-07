@@ -28,7 +28,7 @@ def combineImages(files, output_file):
     new_image.save(output_file)
 
 # create gif of all images in a directory
-def make_gif(image_dir, output_dir, output_file):
+def make_gif(image_dir, output_dir, output_file, frame_duration):
     output_path = "{0}/{1}".format(output_dir, output_file)
     images      = glob.glob(image_dir + "/*.jpg")
     
@@ -42,10 +42,9 @@ def make_gif(image_dir, output_dir, output_file):
     for image in images:
         print(image)
     
-    duration    = 500
     frames      = [Image.open(image) for image in images]
     first_frame = frames[0]
-    first_frame.save(output_path, format="GIF", append_images=frames, save_all=True, duration=duration, loop=0)
+    first_frame.save(output_path, format="GIF", append_images=frames, save_all=True, duration=frame_duration, loop=0)
     
     print("Output file: {0}".format(output_path))
 
@@ -113,35 +112,36 @@ def run_combine():
 
 # create gifs of files in directory
 def run_standard():
+    # frame duration in milliseconds
+    frame_duration = 1000
+    # output directory
+    output_dir  = "gifs"
+    
     # all original images of tree
     image_dir   = "images/The_KU_Tree_2022_09_06_v1/original"
-    output_dir  = "gifs"
     output_file = "The_KU_Tree_2022_09_06_v1_original.gif"
-    make_gif(image_dir, output_dir, output_file)
+    make_gif(image_dir, output_dir, output_file, frame_duration)
     
     # west side of tree 
     image_dir   = "images/The_KU_Tree_2022_09_06_v1/west_side"
-    output_dir  = "gifs"
     output_file = "The_KU_Tree_2022_09_06_v1_west_side.gif"
-    make_gif(image_dir, output_dir, output_file)
+    make_gif(image_dir, output_dir, output_file, frame_duration)
     
     # east side of tree 
     image_dir   = "images/The_KU_Tree_2022_09_06_v1/east_side"
-    output_dir  = "gifs"
     output_file = "The_KU_Tree_2022_09_06_v1_east_side.gif"
-    make_gif(image_dir, output_dir, output_file)
+    make_gif(image_dir, output_dir, output_file, frame_duration)
     
     # combined west side and east side images of tree
     image_dir   = "images/The_KU_Tree_2022_09_06_v1/combined"
-    output_dir  = "gifs"
     output_file = "The_KU_Tree_2022_09_06_v1_combined.gif"
-    make_gif(image_dir, output_dir, output_file)
+    make_gif(image_dir, output_dir, output_file, frame_duration)
 
 def main():
     start_time = time.time()
     
     #test_combine()
-    run_combine()
+    #run_combine()
     run_standard()
     
     end_time = time.time()
