@@ -1,5 +1,6 @@
 # make_gif.py
 
+import time
 import os
 import glob
 from PIL import Image
@@ -30,11 +31,35 @@ def make_gif(image_dir, output_dir, output_file):
     
     print("Output file: {0}".format(output_path))
 
-def main():
+def run():
+    start_time = time.time()
+    
+    # all images of tree
     image_dir   = "images/The_KU_Tree_2022_09_06_v1"
     output_dir  = "gifs"
     output_file = "The_KU_Tree_2022_09_06_v1.gif"
     make_gif(image_dir, output_dir, output_file)
+    
+    # west side of tree 
+    image_dir   = "images/The_KU_Tree_2022_09_06_v1_split/west_side"
+    output_dir  = "gifs"
+    output_file = "The_KU_Tree_2022_09_06_v1_west_side.gif"
+    make_gif(image_dir, output_dir, output_file)
+    
+    # east side of tree 
+    image_dir   = "images/The_KU_Tree_2022_09_06_v1_split/east_side"
+    output_dir  = "gifs"
+    output_file = "The_KU_Tree_2022_09_06_v1_east_side.gif"
+    make_gif(image_dir, output_dir, output_file)
+    
+    end_time = time.time()
+    
+    run_time = end_time - start_time
+    
+    print("run time: {0:.3f} seconds".format(run_time))
+
+def main():
+    run()
 
 if __name__ == '__main__':
     main()
