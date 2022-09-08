@@ -49,7 +49,8 @@ def make_gif(image_dir, output_dir, output_file, frame_duration):
     print("Output file: {0}".format(output_path))
 
 # create combined images
-# assume same image names in both input directories
+# - assumes that files with the same base file names exist in both directories
+# - images with same base file name are combined 
 def create_combined(image_dir_1, image_dir_2, output_dir):
     print("Creating combined images.")
     images_1 = glob.glob(image_dir_1 + "/*.jpg")
@@ -70,11 +71,6 @@ def create_combined(image_dir_1, image_dir_2, output_dir):
         print(" - n_images_2:  {0}".format(n_images_2))
         return
     
-    #for image in images_1:
-    #    print(image)
-    #for image in images_2:
-    #    print(image)
-    
     for i1, i2 in zip(images_1, images_2):
         files   = [i1, i2]
         name_1  = os.path.basename(i1)
@@ -90,19 +86,20 @@ def create_combined(image_dir_1, image_dir_2, output_dir):
         output_file = "{0}/{1}".format(output_dir, name_1)
         combineImages(files, output_file)
         
-        #print(i1, i2)
         print(name_1)
     
     print("Output directory: {0}".format(output_dir))
 
+# test combineImages()
 def test_combine():
     files = [
-        "images/The_KU_Tree_2022_09_06_v1_split/west_side/PXL_20220809_001.jpg",
-        "images/The_KU_Tree_2022_09_06_v1_split/east_side/PXL_20220809_001.jpg",
+        "images/The_KU_Tree_2022_09_06_v1/west_side/PXL_20220809_001.jpg",
+        "images/The_KU_Tree_2022_09_06_v1/east_side/PXL_20220809_001.jpg",
     ]
     output_file = "test_combine_1.jpg"
     combineImages(files, output_file)
 
+# combine images from input directories
 def run_combine():
     # order images from left to right
     image_dir_1 = "images/The_KU_Tree_2022_09_06_v1/west_side"
@@ -137,11 +134,12 @@ def run_standard():
     output_file = "The_KU_Tree_2022_09_06_v1_combined.gif"
     make_gif(image_dir, output_dir, output_file, frame_duration)
 
+# main
 def main():
     start_time = time.time()
     
-    #test_combine()
-    #run_combine()
+    test_combine()
+    run_combine()
     run_standard()
     
     end_time = time.time()
