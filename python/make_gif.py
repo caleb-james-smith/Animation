@@ -102,10 +102,10 @@ def test_combine():
 # combine images from input directories
 def run_combine():
     # order images from left to right
-    image_dir_1 = "images/The_KU_Tree_2022_09_06_v1/west_side"
-    image_dir_2 = "images/The_KU_Tree_2022_09_06_v1/east_side"
-    output_dir  = "images/The_KU_Tree_2022_09_06_v1/combined"
-    create_combined(image_dir_1, image_dir_2, output_dir)
+    #image_dir_1 = "images/The_KU_Tree_2022_09_06_v1/west_side"
+    #image_dir_2 = "images/The_KU_Tree_2022_09_06_v1/east_side"
+    #output_dir  = "images/The_KU_Tree_2022_09_06_v1/combined"
+    #create_combined(image_dir_1, image_dir_2, output_dir)
     # order images from left to right
     image_dir_1 = "images/The_KU_Tree_2022_09_17_v1/west_side"
     image_dir_2 = "images/The_KU_Tree_2022_09_17_v1/east_side"
@@ -121,25 +121,25 @@ def run_standard():
     
     # --------------------------------------------------------- #
     
-    # all original images of tree
-    image_dir   = "images/The_KU_Tree_2022_09_06_v1/original"
-    output_file = "The_KU_Tree_2022_09_06_v1_original.gif"
-    make_gif(image_dir, output_dir, output_file, frame_duration)
-    
-    # west side of tree 
-    image_dir   = "images/The_KU_Tree_2022_09_06_v1/west_side"
-    output_file = "The_KU_Tree_2022_09_06_v1_west_side.gif"
-    make_gif(image_dir, output_dir, output_file, frame_duration)
-    
-    # east side of tree 
-    image_dir   = "images/The_KU_Tree_2022_09_06_v1/east_side"
-    output_file = "The_KU_Tree_2022_09_06_v1_east_side.gif"
-    make_gif(image_dir, output_dir, output_file, frame_duration)
-    
-    # combined west side and east side images of tree
-    image_dir   = "images/The_KU_Tree_2022_09_06_v1/combined"
-    output_file = "The_KU_Tree_2022_09_06_v1_combined.gif"
-    make_gif(image_dir, output_dir, output_file, frame_duration)
+    # # all original images of tree
+    # image_dir   = "images/The_KU_Tree_2022_09_06_v1/original"
+    # output_file = "The_KU_Tree_2022_09_06_v1_original.gif"
+    # make_gif(image_dir, output_dir, output_file, frame_duration)
+    # 
+    # # west side of tree 
+    # image_dir   = "images/The_KU_Tree_2022_09_06_v1/west_side"
+    # output_file = "The_KU_Tree_2022_09_06_v1_west_side.gif"
+    # make_gif(image_dir, output_dir, output_file, frame_duration)
+    # 
+    # # east side of tree 
+    # image_dir   = "images/The_KU_Tree_2022_09_06_v1/east_side"
+    # output_file = "The_KU_Tree_2022_09_06_v1_east_side.gif"
+    # make_gif(image_dir, output_dir, output_file, frame_duration)
+    # 
+    # # combined west side and east side images of tree
+    # image_dir   = "images/The_KU_Tree_2022_09_06_v1/combined"
+    # output_file = "The_KU_Tree_2022_09_06_v1_combined.gif"
+    # make_gif(image_dir, output_dir, output_file, frame_duration)
     
     # --------------------------------------------------------- #
     
